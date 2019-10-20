@@ -9,7 +9,7 @@ exports.up = function(knex) {
 
     users.string("password", 128).notNullable();
     users.integer("age").notNullable();
-    users.integer("height").notNullable();
+    users.float("height").notNullable();
     users.float("weight").notNullable();
     users.float("exerciseFrequency").notNullable();
     users.float("goal").notNullable();
