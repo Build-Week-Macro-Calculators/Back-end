@@ -11,4 +11,13 @@ router.get("/", (req, res) => {
     .catch(err => res.send(err));
 });
 
+router.get("/profile", restricted, (req, res) => {
+  const username = req.decodedToken.username;
+
+  Users.findBy({ username })
+    .first()
+    .then(user => {
+      res.json(user);
+    });
+});
 module.exports = router;
