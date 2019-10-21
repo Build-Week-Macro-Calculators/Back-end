@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
       res.status(201).json({ user: saved, token });
     })
     .catch(error => {
-      if (error.errno == 19) {
+      if (error.errno == 19 || error.message.code == "23505") {
         res.status(400).json({ message: "username already in database" });
       } else {
         res.status(500).json({ message: error });
