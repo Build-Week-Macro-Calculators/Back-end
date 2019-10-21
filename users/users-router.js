@@ -7,9 +7,9 @@ router.get("/", restricted, (req, res) => {
   console.log(req.decodedToken);
   Users.find()
     .then(users => {
-      res.json(users);
+      res.status(200).json({ users });
     })
-    .catch(err => res.send(err));
+    .catch(err => res.status(500).json({ message: err }));
 });
 
 router.get("/profile/:username", restricted, (req, res) => {
@@ -18,9 +18,9 @@ router.get("/profile/:username", restricted, (req, res) => {
   Users.findBy({ username })
     .first()
     .then(user => {
-      res.json(user);
+      res.status(200).json({ user });
     })
-    .catch(err => res.send(err));
+    .catch(err => res.status(500).json({ message: err }));
 });
 
 router.get("/profile", restricted, (req, res) => {
@@ -28,9 +28,9 @@ router.get("/profile", restricted, (req, res) => {
   Users.findBy({ username })
     .first()
     .then(user => {
-      res.json(user);
+      res.status(200).json(user);
     })
-    .catch(err => res.send(err));
+    .catch(err => res.status(500).json({ message: err }));
 });
 
 // router.put("/profile", restricted, (req, res) => {
