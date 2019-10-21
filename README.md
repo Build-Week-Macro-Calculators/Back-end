@@ -8,6 +8,14 @@ Node.js (SQL database)
 
 ### GET
 
+Routes below require the user to be logged in and have a token.
+
+- For testing, log in with the following:
+- **username**: test
+- **password**: test
+
+#### Routes
+
 - All Users: /users
 - Current User: /users/profile
 - Any User: /user/profile/:username
