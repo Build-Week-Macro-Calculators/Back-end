@@ -1,5 +1,17 @@
 // Update with your config settings.
 
+const localPg = {
+  host: "localhost",
+  port: 5432,
+  user: "anthony",
+  database: "users"
+};
+
+const pgUser = process.env.PG_USER || "anthony";
+const pgDb = process.env.PG_DB || "users";
+
+const prodConnection = `postgres://${pgUser}@localhost/${pgDb}`;
+
 module.exports = {
   development: {
     client: "sqlite3",
