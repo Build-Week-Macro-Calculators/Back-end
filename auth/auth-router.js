@@ -42,7 +42,6 @@ router.post("/login", (req, res) => {
 });
 
 function generateToken(user) {
-  console.log(user.username);
   const payload = {
     sub: user.id,
     username: user.username

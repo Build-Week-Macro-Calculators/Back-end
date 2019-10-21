@@ -16,9 +16,20 @@ function findBy(filter) {
   return db("users").where(filter);
 }
 
-function update() {}
+function update(id, changes) {
+  return db("users")
+    .where({ id })
+    .update(changes)
+    .then(count => {
+      return findById(id);
+    });
+}
 
-function findById() {}
+function findById() {
+  return db("users")
+    .where({ id })
+    .first();
+}
 
 async function add(user) {
   const newUser = await db("users").insert(user);
