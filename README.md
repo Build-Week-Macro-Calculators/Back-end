@@ -16,14 +16,14 @@ Routes below require the user to be logged in and have a token.
 
 #### Routes
 
-- All Users: /users
-- Current User: /users/profile
-- Any User: /user/profile/:username
+- **All Users**: /users
+- **Current User**: /users/profile
+- **Any User**: /user/profile/:username
 
 ### POST
 
-- Register: /auth/register
-- Login: /auth/login
+- **Register**: /auth/register (requires all data)
+- **Login**: /auth/login (only requires username and password)
 
 The data required and the corresponding data types for registration is as followed:
 
