@@ -42,3 +42,11 @@ NOTES ON DATA:
 - **weight**: is expected to be in pounds
 - **goal**: expected to be a percent represented in decimal form. ex: -15% would be -0.15.
 - **male**: boolean that indicates the user is male if true and female if false.
+
+### PUT
+
+- **Edit Current User**: /profile
+
+### DELETE
+
+- **Delete Current User**: /profile
