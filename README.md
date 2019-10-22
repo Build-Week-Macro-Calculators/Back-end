@@ -11,8 +11,8 @@ Node.js (SQL database)
 Routes below require the user to be logged in and have a token.
 
 - For testing, log in with the following:
-- **username**: test
-- **password**: test
+  - **username**: test
+  - **password**: test
 
 #### Routes
 
