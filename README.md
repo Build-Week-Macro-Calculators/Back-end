@@ -20,8 +20,8 @@ Routes below require the user to be logged in and have a token.
 
 - **All Users**: /users
 - **Current User**: /users/profile
-- **Current User's Weight History**:
-- **Any User**: /user/profile/search/:username
+- **Current User's Weight History**: /users/profile/weight
+- **Any User**: /users/profile/search/:username
 
 ### POST
 
