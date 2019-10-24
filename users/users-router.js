@@ -64,10 +64,11 @@ router.put("/profile/editWeight", restricted, (req, res) => {
     .then(async user => {
       if (user) {
         const update = await Users.update(id, changes);
+        const date = moment().format("LLL");
         const userData = {
           user_id: id,
           weight: changes.weight,
-          date: moment().format("LLL")
+          date: date
         };
         const newWeight = await Users.addWeight(userData);
         res.status(200).json(userData);
