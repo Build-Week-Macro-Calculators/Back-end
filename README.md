@@ -8,6 +8,8 @@ Node.js (SQL database)
 
 ### GET
 
+- **Get all users' weight history (use for testing; do not use for production)**: /users/findAllWeights
+
 Routes below require the user to be logged in and have a token.
 
 - For testing, log in with the following:
@@ -18,7 +20,8 @@ Routes below require the user to be logged in and have a token.
 
 - **All Users**: /users
 - **Current User**: /users/profile
-- **Any User**: /user/profile/:username
+- **Current User's Weight History**:
+- **Any User**: /user/profile/search/:username
 
 ### POST
 
@@ -45,7 +48,8 @@ NOTES ON DATA:
 
 ### PUT
 
-- **Edit Current User**: /profile
+- **Edit Current User**: /profile (DO NOT USE TO EDIT WEIGHT; USE THE ENDPOINT BELOW INSTEAD)
+- **Edit Current User's Weight**: /profile/editweight (this will save the new weight to the user's weight history. Takes weight as its only parameter and the rest is done on the backend)
 
 ### DELETE
 
