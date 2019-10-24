@@ -99,7 +99,7 @@ router.delete("/profile", restricted, (req, res) => {
     });
 });
 
-router.get("/profile/findweight", restricted, (req, res) => {
+router.get("/profile/weight", restricted, (req, res) => {
   const id = req.decodedToken.sub;
 
   Users.findUserWeights(id)
