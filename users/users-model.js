@@ -1,4 +1,5 @@
 const db = require("../data/dbConfig");
+const moment = require("moment");
 
 module.exports = {
   add,
@@ -6,7 +7,10 @@ module.exports = {
   findBy,
   findById,
   update,
-  remove
+  remove,
+  findUserWeights,
+  addWeight,
+  findAllWeights
 };
 
 function find() {
@@ -34,7 +38,34 @@ function findById(id) {
 
 async function add(user) {
   const [id] = await db("users").insert(user, "id");
+  const userData = {
+    user_id: id,
+    weight: user.weight,
+    date: moment().format("LLL")
+  };
+  const addWeight = await db("userWeight").insert(userData, "id");
   return findById(id);
+}
+
+function findUserWeights(id) {
+  return db("userWeight").where({ user_id: id });
+}
+
+async function addWeight(userData) {
+  const [id] = await db("userWeight").insert(userData, "id");
+}
+
+function findAllWeights() {
+  return db("userWeight").select("*");
+}
+
+async function editWeight(id, weight) {
+  const edit = db("users")
+    .where({ id })
+    .update(weight)
+    .then(count => {
+      return findById(id);
+    });
 }
 
 function remove(id) {

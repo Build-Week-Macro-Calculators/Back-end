@@ -9,8 +9,10 @@ exports.up = function(knex) {
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     tbl.float("weight").notNullable();
-    tbl.date("date").notNullable();
+    tbl.string("date").notNullable();
   });
 };
 
-exports.down = function(knex) {};
+exports.down = function(knex) {
+  return knex.schema.dropTableIfExists("userWeight");
+};
